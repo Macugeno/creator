@@ -1,0 +1,832 @@
+@font-face { font-family: Roboto-Regular; src: url('roboto/Roboto-Regular.ttf'); }
+
+#header{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 80px;
+	z-index: 1000;
+}
+
+#header #EnliLogo{
+	margin-left: 47%;
+	background: url("Buttons/enli_big_png.png")no-repeat;
+	background-size: 100%;
+	height: 70px;
+	width: 150px;
+}
+
+#header #enli-header{
+	overflow: hidden;
+	pointer-events: none;
+	height: inherit;
+}
+
+#header #enli-header #BackgroundEnli{
+	position: relative;
+	width: 100%;
+	background-color: #7CA616;
+	overflow: hidden;
+	z-index: 2;
+}
+
+.podorys-section{
+	position: absolute;
+	top: 80px;
+	z-index: 999;
+	width: 100%;
+	/*height: 100%;*/
+	pointer-events:none;
+}
+
+.podorys-section #podoris-toolbar{
+	height: 100px;
+	width: 100%;
+	background-color: #FFF;
+	position: relative;
+	pointer-events: auto;
+	z-index: 999;
+}
+
+.podorys-section .left-menu{
+	z-index: 1000;
+	position: absolute;
+	height: 100%;
+	width: 250px;
+	background-color: #FFFFFF;
+	pointer-events: auto;
+}
+
+.podorys-section .left-menu p{
+	color: #7CA616;
+	font-size: 120%;
+	font-family: 'Roboto-Regular';
+	font-weight: bold;
+}
+.podorys-section .left-menu-item{
+	width: 100%; 
+	position:relative;
+	left:40px;
+}
+.podorys-section #MaterialChooser{
+	position:relative; 
+	z-index: 999;
+	background-color: #FFFFFF;
+	height: 550px;
+	width: 415px;
+	float: left;
+	margin-left: -240px;
+	/*float: left;*/
+	border: 1px solid #7ca616;
+	border-radius: 5px;
+	pointer-events:auto;
+	-webkit-transition: left .5s ease-out; /* For Safari 3.1 to 6.0 */
+	transition: left .5s ease-out;
+}
+
+#B0{
+	background-image: url("Buttons/1.png");
+	background-size: 100%;
+}
+#B1{
+	background-image: url("Buttons/15.png");
+	background-size: 100%;
+}
+#B2{
+	background-image: url("Buttons/18.png");
+	background-size: 100%;
+}
+#B3{
+	background-image: url("Buttons/16.png");
+	background-size: 100%;
+
+}
+#B4{
+	background-image: url("Buttons/20.png");
+	background-size: 100%;
+}
+#B5{
+	background-image: url("Buttons/17.png");
+	background-size: 100%;
+}
+#B6{
+	background-image: url("Buttons/10.png");
+	background-size: 100%;
+}
+#B7{
+	background-image: url("Buttons/12.png");
+	background-size: 100%;
+}
+#B8{
+	background-image: url("Buttons/11.png");
+	background-size: 100%;
+}
+#B9{
+	background-image: url("Buttons/13.png");
+	background-size: 100%;
+}
+
+/* -------- DW SECTION ---------------*/
+
+.dw-section {
+	position: absolute;
+	z-index: 999;
+	/*height: 100%;*/
+	width: 100%;
+	top: 80px;
+}
+
+.dw-section #dw-toolbar{
+	position: relative;
+	float: left;
+	height: 97px;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #FFF;
+}
+.dw-section #ButtonContainerDW2{
+	position: absolute;
+	float: left;
+	height: 100%;
+	width: 50%;
+	margin-left: 50%;
+	margin-top: 70px;
+	pointer-events: auto;
+}
+
+.dw-section .left-menu{
+	position: relative;
+	height: 100%;
+	width: 250px;
+	background-color: #FFFFFF;
+	pointer-events: auto;
+	top: 95px;
+}
+
+.dw-section #MenuItemWindow{
+	background-color: #FFF;
+	height: 400px;
+	width: 320px;
+	border: 1px solid #7CA616;
+	border-radius: 5px;
+	transition: left 0.5s ease-out 0s;
+	overflow: auto;
+	float: left;
+	pointer-events: auto;
+	position: relative;
+}
+.dw-section #MenuItemDoor{
+	background-color: #FFF;
+	height: 400px;
+	width: 320px;
+	border: 1px solid #7CA616;
+	border-radius: 5px;
+	transition: left 0.5s ease-out 0s;
+	overflow: auto;
+	float: left;
+	pointer-events: auto;
+	position: relative;
+}
+
+/*
+.dw-section #MainDW{
+	position: absolute;
+	height: 13%;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+*/
+/* ------------INTERIER------------*/
+
+.interier-section{
+	position: relative;
+	top: 80px;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 999;
+}
+
+.interier-section #ProductBox{
+	z-index: 998;
+	position: absolute;
+	height: 800px;
+	width: 600px;
+	margin-left: -605px;
+	-webkit-transition: left .5s ease-out; /* For Safari 3.1 to 6.0 */
+	transition: left .5s ease-out;
+	background-color: #FFFFFF;
+	border: 1px solid #7ca616;
+	border-radius: 5px;
+	overflow: auto;
+	float: left;
+	pointer-events: auto;
+}
+.interier-section #interier-toolbar{
+	position: relative;
+	background-color: #FFF;
+	height: 100px;
+	z-index: 999;
+	width: 100%;
+	pointer-events: auto;
+}
+
+.interier-section #interier-toolbar #buttons{
+	position: relative;
+	float: left;
+	height: 80px;
+	pointer-events: auto;
+	background-color: #FFF;
+	width: 100%;
+	pointer-events: auto;
+}
+.interier-section .left-menu{
+	position: relative;
+	height: 100%;
+	width: 250px;
+	z-index: 999;
+	background-color: #FFF;
+	pointer-events: auto;
+}
+.interier-section .left-menu #InterierMenu{
+	top: 150px;
+	height: 100%;
+	width: 195px;
+	background-color: #FFF;
+	color: #7CA616;
+	margin-left: 40px;
+}
+
+.fps-section {
+	z-index: 999;
+	position: absolute;
+	top: 80px;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 100px;
+}
+
+#ButtonContainer{
+	position: absolute;
+	float: left;
+	pointer-events: auto;
+	background-color: #FFFFFF;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+#ButtonContainer2{
+	position: absolute;
+	float: left;
+	height: 100%;
+	width: 43%;
+	margin-left: 43%;
+	margin-top: -10px;
+	pointer-events: auto;
+}
+#ButtonContainer3{
+	width: 10%;
+	height: 100%;
+	pointer-events: auto;	
+	display: inline-block;
+}
+#ButtonContainer4{
+	width: 10%;
+	height: 100%;
+	pointer-events: auto;
+	display: inline-block;
+}
+#ButtonContainer5{
+	width: 10%;
+	height: 100%;
+	pointer-events: auto;
+	display: inline-block;
+}
+
+#ButtonContainerInterier2{
+	position: absolute;
+	float: left;
+	height: 100%;
+	width: 50%;
+	margin-left: 50%;
+	margin-top: 70px;
+	pointer-events: auto;
+}
+
+
+#ProjektMenuContainer{
+	float: right;
+	position: relative;
+	top: -80px;
+	height: inherit;
+	z-index: 1000;
+}
+
+#SekciaContainer{
+	position: relative;
+	top: -80px;
+	float: left;
+	height: 100%;
+	z-index: 1000;
+	vertical-align: middle;
+	padding: 4px;
+}
+#PodorysMenu{
+	position: relative;
+	height: 100px;
+	width: 35%;
+	background-color: #FFFFFF;
+	float: left;
+
+}
+#canvasHolder{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 1;
+}
+
+#PodorysMenu2{
+	position: relative;
+	height: 100%;
+	width: 35%;
+	background-color: #FFFFFF;
+	margin-left: 38%;
+}
+
+#Settings{
+	pointer-events: auto;
+	position: relative;
+	width: 300px;
+	height: 420px;
+	background-color: #FFFFFF;
+	float: right;
+	margin-top: 15px;
+	margin-right: -300px;
+		border: 1px solid #7ca616;
+	border-radius: 5px;
+	-webkit-transition: right .5s ease-out; /* For Safari 3.1 to 6.0 */
+	transition: right .5s ease-out;
+}
+#SaveProject{
+	display: block;
+	pointer-events: auto;
+	position: relative;
+	width: 250px;
+	height: 200px;
+	background-color: #FFFFFF;
+	float: right;
+	margin-top: -300px;
+	margin-right: 15px;
+		border: 1px solid #7ca616;
+	border-radius: 5px;
+	z-index: 19;
+}
+#LoadProject{
+	display: block;
+	pointer-events: auto;
+	position: relative;
+	width: 250px;
+	height: 200px;
+	background-color: #FFFFFF;
+	float: right;
+	margin-top: -300px;
+	margin-right: 30px;
+	border: 1px solid #7ca616;
+	border-radius: 5px;
+	z-index: 18;
+}
+.Button {
+	display: inline-block;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+
+    margin-left: -2px;
+  } 
+
+.WindowButton{
+	display: inline-block;
+	vertical-align: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 2px;
+}
+.DoorButton{
+	display: inline-block;
+	vertical-align: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 2px;
+}
+
+.btn-my{
+	background-position: left bottom;
+	
+}   
+.btn-my:hover{
+	background-position: left top!important;
+}
+ .btn-my2{
+ 	background-position: left top;
+ 	
+} 
+.TypeProductDesign{
+	display: block;
+	color: #7CA616;
+	padding: 1px 2px;
+	margin-bottom: 0;
+	font-family: 'Roboto-Regular';
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.TypeProductDesignClicked{
+	display: block;
+	color: #000000;
+	padding: 1px 2px;
+	margin-bottom: 0;
+	font-family: 'Roboto-Regular';
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.TypeProductDesign:hover{
+color: #000000;
+text-decoration: none;
+cursor: pointer; cursor: hand;
+}
+.TypeProductDesignClicked:hover{
+color: #7CA616;
+text-decoration: none;
+cursor: pointer; cursor: hand;
+}
+.TypeTypeProductDesign{
+	display: block;
+	color: #7CA616;
+	padding: 1px 15px;
+	margin-bottom: 0;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.TypeTypeProductDesignClicked{
+	display: block;
+	color: #000000;
+	padding: 1px 15px;
+	margin-bottom: 0;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.TypeTypeProductDesign:hover{
+	color: #000000;
+text-decoration: none;
+cursor: pointer; cursor: hand;
+}
+
+.TypeTypeProductDesignClicked:hover{
+	color: #7CA616;
+	text-decoration: none;
+	cursor: pointer; cursor: hand;
+}
+
+#B10{
+	background-image: url("Buttons/2.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#B11{
+	background-image: url("Buttons/14.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#B12{
+	background-image: url("Buttons/7.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+
+#B13{
+	background-image: url("Buttons/8.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#B14{
+	background-image: url("Buttons/6.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#B15{
+	background-image: url("Buttons/9.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#B16{
+	display:inline-block;
+width: 180px;
+height: 30px;
+}
+#B17{
+	display:inline-block;
+width: 180px;
+height: 30px;
+}
+#B18{
+	display:inline-block;
+width: 180px;
+height: 30px;
+margin-top: 20px;
+}
+#B19{
+	display:inline-block;
+width: 180px;
+height: 30px;
+}
+#B20{
+	color: #FFFFFF;
+	display:inline-block;
+width: 180px;
+height: 30px;
+background: #7CA616;
+}
+#B21{
+	color: #FFFFFF;
+	display:inline-block;
+width: 180px;
+height: 30px;
+background: #7CA616;
+}
+#B22{
+	margin-top: 5px;
+	color: #FFFFFF;
+	display:inline-block;
+width: 180px;
+height: 30px;
+background: #7CA616;
+}
+#B23{
+	
+	color: #FFFFFF;
+	display:inline-block;
+width: 180px;
+height: 30px;
+background: #7CA616;
+}
+#B24{
+	background: url("Buttons/icon_new_document.png")no-repeat;
+	background-size: 100%;
+	height: 70px;
+}
+#B25{
+	background: url("Buttons/icon_open_file.png")no-repeat;
+	background-size: 100%;
+	height: 70px;
+}
+#B26{
+	background: url("Buttons/icon_save_project.png")no-repeat;
+	background-size: 100%;
+	height: 70px;
+}
+#B27{
+	background: url("Buttons/icon_settings_menu.png")no-repeat;
+	background-size: 100%;
+	height: 70px;
+}
+#B28{
+	background: #7CA616;
+	text-align: middle;
+	color: #FFFFFF;
+	width: 150px;
+	height: 70px;
+}
+#B29{
+	background: #7CA616;
+	text-align: middle;
+	color: #FFFFFF;
+	width: 150px;
+	height: 70px;
+}
+#B30{
+	background: #7CA616;
+	text-align: middle;
+	color: #FFFFFF;
+	width: 150px;
+	height: 70px;
+}
+
+
+#BDW1{
+	background-image: url("Buttons/7.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+
+}
+
+#BDW2{
+	background-image: url("Buttons/8.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW3{
+	background-image: url("Buttons/6.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW4{
+	background-image: url("Buttons/9.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW5{
+	background-image: url("Buttons/1.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+	margin-left: 2%;
+}
+#BDW6{
+	background-image: url("Buttons/3.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW7{
+	background-image: url("Buttons/4.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW8{
+	background-image: url("Buttons/5.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW9{
+	background-image: url("Buttons/20.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW10{
+	background-image: url("Buttons/2.png");
+	background-size: 100%;
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BDW11{
+	background-image: url("Buttons/14.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+
+#BI1{
+	background-image: url("Buttons/7.png");
+	background-size: 100%;
+	margin-top: 20px;
+	
+}
+
+#BI2{
+	background-image: url("Buttons/8.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI3{
+	background-image: url("Buttons/6.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI4{
+	background-image: url("Buttons/9.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI5{
+	background-image: url("Buttons/1.png");
+	background-size: 100%;
+	margin-top: 20px;
+	margin-left: 2%;
+}
+#BI6{
+	background-image: url("Buttons/1.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI7{
+	background-image: url("Buttons/20.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI8{
+	background-image: url("Buttons/2.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+#BI9{
+	background-image: url("Buttons/14.png");
+	background-size: 100%;
+	margin-top: 20px;
+}
+
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+/* RADIO */
+
+a.radio-picture {
+    
+}
+
+a.radio-mriezka{
+
+}
+
+a.radio-view{
+	
+}
+
+
+.hidden {
+    left: -10000px;
+    position: absolute;
+    top: -1000px;
+}
+
+.creator-checkbox-btn {
+	display: block;
+	width: 100%;
+	margin-bottom: 2px;
+	position: relative;
+}
+.creator-checkbox-btn .btn{
+	width: 100%;
+	color: #c7c7c7;
+	/*background-color: #ebf4d7;*/
+	font-family: Helvetica,Arial,sans-serif;
+	text-align: left;
+}
+.accordion__container {
+    
+}
+.accordion__tab {
+  
+}
+.accordion__tab-title {
+    
+}
+.accordion__tab-content {
+    
+}

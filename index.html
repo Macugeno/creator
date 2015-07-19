@@ -1,0 +1,374 @@
+<!doctype html>
+<html ng-app="app" lang="en-us">
+  <head>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="enli-client.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Virtual Creator</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="buttonstyle.css" />
+
+    <!-- VENDOR -->
+    <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="plugin.jslib"></script>
+    <script type="text/javascript" src="angular.js"></script>
+    <script src="bootstrap/ui-bootstrap-tpls-0.11.0-SNAPSHOT.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- CUSTOM -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="creatorSectionCtrls.js"></script>
+    
+    <!--- UNITY -->
+    <link rel="stylesheet" href="TemplateData/style.css" />
+    <script type="text/javascript" src="TemplateData/UnityProgress.js"></script>
+  
+  </head>
+  <body ng-app="app" ng-controller="mainCtrl" class="template">
+
+    <div  id = "canvasHolder">
+      <canvas id="canvas" oncontextmenu="event.preventDefault()" ></canvas>
+    </div>
+    
+    <div id = "header" ng-include="'partials/header.tpl.html'"></div>
+    <!--
+    <div data-ng-include="selectedTemplate.path" style="position: absolute;width:100%; height:100%;z-index: 2; pointer-events: none;"></div>
+    -->
+    <div ng-show="activeMenu.first" class="podorys-section" ng-controller="podorysCtrl">
+      <div id="podoris-toolbar">
+        <div id="ButtonContainer">
+          <input type="radio"  id="category_1" class="hidden" />
+          <a id="B0" class="Button btn-my radio-picture" ng-click = "NoOp(); set_radio('category_1')"></a>
+
+          <input type="radio"  id="category_2" class="hidden" />
+          <a id="B1" class="Button btn-my radio-picture" ng-click = "SingleWall(); set_radio('category_2')"></a>
+
+          <input type="radio"  id="category_3" class="hidden" />
+          <a id="B2" class="Button btn-my radio-picture" ng-click = "CurveWall(); set_radio('category_3')"></a>
+
+          <input type="radio"  id="category_4" class="hidden" />
+          <a id="B3" class="Button btn-my radio-picture" ng-click = "FourWall(); set_radio('category_4')"></a>
+
+          <input type="radio"  id="category_5" class="hidden" />
+          <a id="B4" class="Button btn-my radio-picture" ng-click = "Delete(); set_radio('category_5');SetDefaultFunctionPodorys();"></a>
+
+          <input type="radio"  id="category_6" class="hidden" />
+          <a id="B5" class="Button btn-my radio-picture" ng-click = "AddControlPoint(); set_radio('category_6')"></a>
+
+          <input type="radio"  id="category_7" class="hidden" />
+          <a id="B8" class="Button btn-my radio-picture" ng-click = "PosunSteny(); set_radio('category_7')"></a>
+
+          <input type="radio"  id="category_8" class="hidden" />
+          <a id="B9" class="Button btn-my radio-picture" ng-click = "ZmenaMat(); set_radio('category_8'); setMenuMaterial(1);" ></a>
+        </div>
+      </div>
+      <div class="left-menu">
+        <div class="left-menu-item">
+          <span style="position:relative; ">
+          <p>TYP STENY:</p>
+          </span>
+        </div>
+        <div class="left-menu-item">
+          <form action="">
+          <input type="radio" name="Type" value="Obvod" ng-click = "Obvodova()"> Obvodová<br>
+          <input type="radio" name="Type" value="Vnutro" checked="checked" ng-click = "Vnutorna()"> Vnútorná
+          </form>
+        </div>
+        <div class="left-menu-item">
+          <div>
+            <span style="position:relative; ">
+            <p>VÝŠKA STIEN:</p>
+            </span>
+          </div>
+          <div>
+            <p>
+            <input id="spinner" name="spinner" min = "2.4" max = "3.0" value="2.4" ng-click = "ZmenaVysky();"class="spinner" style="pointer-events: none;">
+            </p>
+          </div>
+        </div>
+        <div class="left-menu-item">
+          <div>
+            <span style="position:relative; "><p>ZMEŇ TYP STENY:</p></span>
+          </div>
+          <div id="ButtonContainer3">
+            <a id="B16" class="Button btn btn-default" ng-click = "Oznacit()">Označiť</a>
+            <a id="B17" class="Button btn btn-default" ng-click = "OznacitVsetky()">Označiť všetky</a>
+            <a id="B18" class="Button btn btn-default" ng-click = "ZmenitNaObvodove()">Zmeniť na obvodové</a>
+            <a id="B19" class="Button btn btn-default" ng-click = "ZmenitNaVnutorne()">Zmeniť na vnútorné</a>
+
+             <form action="">
+      <input type="radio" name="Mierka" value="Auto" ng-click = "MierkaAuto()"> Auto<br>
+      <input type="radio" name="Mierka" value="10cm" checked="checked" ng-click = "Mierka10()"> 10cm<br>
+      <input type="radio" name="Mierka" value="50cm" ng-click = "Mierka50()"> 50cm<br>
+      <input type="radio" name="Mierka" value="100cm" ng-click = "Mierka100()"> 100cm<br>
+      <input type="radio" name="Mierka" value="Vyp" ng-click = "MierkaVyp()"> Vyp.<br>
+      </form>
+          </div> 
+        </div>
+      </div>
+      <div id="MaterialChooser">
+        <div ng-repeat = "materials in mats" class = "btn-group">
+          <a class = "WindowButton " ng-click="ChoosenMaterial(materials.ID);" style="background:url({{materials.Path}}); background-size:100%"></a>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="activeMenu.second" class="dw-section" ng-controller="dwCtrl">
+      
+      <div id="dw-toolbar">
+        <input type="radio"  id="dwcategory_1" class="hidden" />
+        <a id="BDW5" class="Button btn-my2 radio-dw" ng-click = "NoOpDW(); set_dw('dwcategory_1'); setMenu(0);"></a>
+
+        <input type="radio"  id="dwcategory_2" class="hidden" />
+        <a id="BDW6" class="Button btn-my radio-dw" ng-click = "AddWindow();set_dw('dwcategory_2'); setMenu(1);"></a>
+
+        <input type="radio"  id="dwcategory_3" class="hidden" />
+        <a id="BDW7" class="Button btn-my radio-dw" ng-click = "AddDoor();set_dw('dwcategory_3'); setMenu(2);"></a>
+        
+        <input type="radio"  id="dwcategory_5" class="hidden" />
+        <a id="BDW9" class="Button btn-my radio-dw" ng-click = "DeleteDW(); set_dw('dwcategory_5');setMenu(0);"></a>
+      </div>
+      <div class="left-menu">
+        <div id="MenuItemWindow" style="position:relative;left:5px; top:160px;pointer-events: auto; "  >
+          <div ng-repeat = "window in menuData.okna.child" class = "btn-group" >
+            <a class = "WindowButton " ng-click = "ChooseWindow(window.asset);" style="background:url({{window.image}}); background-size:100%"></a>
+          </div>
+        </div>
+        <div id="MenuItemDoor" style="position:relative;left:5px; top:160px; "  >
+          <div ng-repeat = "door in menuData.dvere.child" class = "btn-group" >
+            <a class = "DoorButton " ng-click = "ChooseDoor(door.asset); "style="background:url({{door.image}}); background-size:100%"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interier-section" ng-show="activeMenu.third" ng-controller="interierCtrl">
+      <div id="interier-toolbar" >
+        <div id="buttons">
+            <input type="radio"  id="icategory_1" class="hidden" />
+            <a id="BI5" class="Button btn-my2 radio-i" ng-click = "NoOpInterier(); set_i('icategory_1')"></a>
+
+            <input type="radio"  id="icategory_2" class="hidden" />
+            <a id="BI6" class="Button btn-my radio-i" ng-click = "Rotate(); set_i('dwcategory_2')"></a>
+
+            <input type="radio"  id="icategory_3" class="hidden" />
+            <a id="BI7" class="Button btn-my radio-i" ng-click = "Delete(); set_i('icategory_3')"></a>
+        </div>
+      </div>
+      
+      <div class="left-menu">
+        <div id="InterierMenu">
+          <div>
+            <span style="position:relative; ">
+            <p>VÝROBCA:<button style="margin-left: 80px;" ng-click= "setMenu();">-></button></p></span>
+          </div>
+          <div class="form-group"style="position:relative; ">
+                  <select class="form-control input-sm" 
+                      ng-model="vyrobca"
+                      ng-options="manufacturer.uidisplayname for manufacturer in menuData.manufacturers">
+                  </select>
+          </div>  
+          <div>
+            <span style="position:relative;">
+              <p>TYP IZBY:</p>
+            </span>
+          </div>  
+          <div class="form-group" style="position:relative; ">
+            <select class="form-control input-sm" 
+                ng-model="TypIzby"
+                ng-options="element.uidisplayname for element in menuData.elements"
+                ng-change = "changedValue(TypIzby)">
+            </select>
+          </div>   
+          <div>
+            <div class="accordion__container" ng-repeat = "TypeProduct in dataToRepeat">
+                <div class="accordion__tab btn-group enli-checkbox-btn clearfix ng-scope active">
+                    <a class="accordion__tab-title TypeProductDesign" ng-class="{'TypeProductDesignClicked' : TypeProduct.toggled, 'TypeProductDesign' : !TypeProduct.toggled}" ng-click="openTab(TypeProduct); " >{{TypeProduct.uidisplayname}}</a>
+                    <a class="accordion__tab-content TypeTypeProductDesign" ng-class="{'TypeTypeProductDesignClicked' : Typetypeproducts.toggled, 'TypeTypeProductDesign' : !Typetypeproducts.toggled}" ng-repeat = "Typetypeproducts in TypeProduct.child" ng-show="isOpenTab(TypeProduct.uidisplayname)" ng-click = "ClickedTypeType(Typetypeproducts);">{{Typetypeproducts.uidisplayname}}</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="ProductBox" style = "pointer-events: auto;">
+        <div  ng-repeat="prod in productsToShow" class = "btn-group">
+            <a class = "WindowButton" ng-click = "PridatNabytok(prod)"style="background-image:url({{prod.image}}); background-size:100%;"></a>
+        </div>
+      </div>
+  </div>
+
+  <div ng-show="activeMenu.fourth" class="fps-section" ng-controller="FPSCtrl">
+    <button id="odstranit" class="Button btn-my" ng-click = "OdstranitObjekt()">Odstranit</button>
+      <button id="pridat" class="Button btn-my" ng-click = "PridaObjekt()">PridatObjekt</button>
+      <button id="zmenaMat" class="Button btn-my" ng-click = "ZmenitMaterial()">ZmenitMaterial</button>
+      <button id="zmenaObj" class="Button btn-my" ng-click = "ZmenitObjekt()">ZmenitObjekt</button>
+      <button id="X" class="Button btn-my" ng-click = "X()">X</button>
+      <button id="pohyb" class="Button btn-my" ng-click = "pohyb()">pohyb</button>
+      <button id="rotacia" class="Button btn-my" ng-click = "rotacia()">rotacia</button>
+      <button id="ok" class="Button btn-my" ng-click = "ok()">ok</button>
+      <button id="colorChooser" class="Button btn-my" ng-click = "colorChooser()">colorChooser</button>
+      <button id="mousectrl" class="Button btn-my" ng-click = "mouse_controll()">mouse_controll</button>
+      <button id="WASD" class="Button btn-my" ng-click = "mouseWASD_controll()">mouseWASD</button>
+      <button id="editor" class="Button btn-my" ng-click = "editor()">editor</button>
+  </div>
+
+  <!--  DIRECTIVE  div rozalia></div-->
+  <script type='text/javascript'>
+    $(function() {
+      $( "#slider" ).slider();
+    });
+  </script>
+  
+  <script type='text/javascript'>
+    $( "#B24" ).click(function() {
+      console.log("Funkcia novy projekt");
+    });
+    $( "#B25" ).click(function() {
+      console.log("nacitat projekt");
+    });
+    $( "#B26" ).click(function() {
+      console.log("Ulozit projekt");
+    });
+    $( "#B27" ).click(function() {
+      console.log("Nastavenia");
+    });
+
+    lastoPlugin.showDeleteCursor();
+    //$("#cursor").click(lastoPlugin.showNormalCursor());
+
+    function getBrowser () {
+    var browser;
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) browser = "firefox";
+        if (navigator.userAgent.toLowerCase().indexOf('trident') > -1) browser = "ie";
+        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) browser = "chrome";
+        if (navigator.userAgent.toLowerCase().indexOf('op') > -1) browser = "opera";
+        if (navigator.userAgent.toLowerCase().indexOf('safari') > -1 && navigator.userAgent.indexOf('Chrome') == -1) browser = "safari";
+
+        return browser;
+    }
+
+    function closeLoader () {
+      var width = $(document).width();
+      document.getElementById('loading-box').style.display = "none";
+    }
+
+    $("#lot").click(function(){
+      var browseris = getBrowser();
+      console.log(browseris);
+      SendMessage("CameraObject","setBrowser",browseris);
+    });
+
+   
+  </script>
+  <script type="text/javascript">
+    window.addEventListener('keydown', function (e) {
+      if (e.keyCode === 8) {
+      if (e.target === document.body) {
+          e.preventDefault();
+        }
+      }
+    }, true);
+
+  </script>
+  <script type='text/javascript'>
+    // Connect to canvas
+    var Module = {
+    TOTAL_MEMORY: 838860800,
+    filePackagePrefixURL: "Release/",
+    memoryInitializerPrefixURL: "Release/",
+    preRun: [],
+    postRun: [],
+    print: (function() {
+      return function(text) {
+        console.log (text);
+      };
+    })(),
+    printErr: function(text) {
+      console.error (text);
+    },
+    canvas: document.getElementById('canvas'),
+    progress: null,
+    setStatus: function(text) {
+      if (this.progress == null) 
+      {
+        if (typeof UnityProgress != 'function')
+          return;
+        this.progress = new UnityProgress (canvas);
+      }
+      if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+      if (text === Module.setStatus.text) return;
+      this.progress.SetMessage (text);
+      var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+      if (m)
+        this.progress.SetProgress (parseInt(m[2])/parseInt(m[4]));
+      if (text === "") 
+        this.progress.Clear()
+    },
+    totalDependencies: 0,
+    monitorRunDependencies: function(left) {
+      this.totalDependencies = Math.max(this.totalDependencies, left);
+      Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+    }
+  };
+  Module.setStatus('Downloading (0.0/1)');
+
+  Module.canvas.requestPointerLock = Module.canvas.requestPointerLock ||
+  Module.canvas.mozRequestPointerLock ||
+  Module.canvas.webkitRequestPointerLock;
+                            /*
+  Module.canvas.onclick = function(){
+    Module.canvas.requestPointerLock();
+  }
+  */
+  </script>
+
+  <script src="Release/UnityConfig.js"></script>
+  <script src="Release/fileloader.js"></script>
+  <script>if (!(!Math.fround)) {
+    var script = document.createElement('script');
+    script.src = "Release/VC.js";
+    document.body.appendChild(script);
+  } else {
+    var codeXHR = new XMLHttpRequest();
+    codeXHR.open('GET', 'Release/VC.js', true);
+    codeXHR.onload = function() {
+      var code = codeXHR.responseText;
+      if (!Math.fround) { 
+  try {
+    console.log('optimizing out Math.fround calls');
+    var m = /var ([^=]+)=global\.Math\.fround;/.exec(code);
+    var minified = m[1];
+    if (!minified) throw 'fail';
+    var startAsm = code.indexOf('// EMSCRIPTEN_START_FUNCS');
+    var endAsm = code.indexOf('// EMSCRIPTEN_END_FUNCS');
+    var asm = code.substring(startAsm, endAsm);
+    do {
+      var moar = false; // we need to re-do, as x(x( will not be fixed
+      asm = asm.replace(new RegExp('[^a-zA-Z0-9\\$\\_]' + minified + '\\(', 'g'), function(s) { moar = true; return s[0] + '(' });
+    } while (moar);
+    code = code.substring(0, startAsm) + asm + code.substring(endAsm);
+    code = code.replace("'use asm'", "'almost asm'");
+  } catch(e) { console.log('failed to optimize out Math.fround calls ' + e) }
+   }
+
+      var blob = new Blob([code], { type: 'text/javascript' });
+      codeXHR = null;
+      var src = URL.createObjectURL(blob);
+      var script = document.createElement('script');
+      script.src = URL.createObjectURL(blob);
+      script.onload = function() {
+        URL.revokeObjectURL(script.src);
+      };
+      document.body.appendChild(script);
+    };
+    codeXHR.send(null);
+  }
+  </script>
+
+  </script>
+  </body>
+</html>
